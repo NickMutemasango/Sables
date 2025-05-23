@@ -1,0 +1,34 @@
+{
+  "committeeMembers": [
+    {
+      "name": "Lindsay Earle",
+      "role": "Entrepreneur & Business Leader",
+      "bio": "Lindsay Earle is a Zimbabwean entrepreneur with interests in Fuel, Mining and Commodities Trading. As a dynamic, self-motivated individual, Lindsay is involved in local boxing and is one of only two female boxing promoters in Zimbabwe. She recently began working with the Sables Rugby Trust and is passionate about projects that contribute to the development of young Zimbabweans and promote the image of the country.",
+      "image": "lindsay_earle.jpeg"
+    },
+    {
+      "name": "Dr. Tapfuma Parirenyatwa",
+      "role": "Medical Director",
+      "bio": "Dr. Tapfuma Parirenyatwa, affectionately known as Dr. Tap, is a third-generation medical practitioner with 10 years of experience. Having completed his studies in Cuba, his career brought him back to Zimbabwe where he worked at Parirenyatwa Hospital before moving to the UK. While there, he continued to serve as the Zimbabwe Sables rugby team's medical practitioner while developing an innovative healthcare business. He remains heavily involved in providing medical support to the teams and management.",
+      "image": "dr_tapfuma_parirenyatwa.jpeg"
+    },
+    {
+      "name": "Leigh Howes",
+      "role": "Rugby Development Specialist",
+      "bio": "Leigh Howes brings extensive experience as an England, Wales, and British Lions qualified player with a 20-year career in professional and international rugby. Her impressive background includes work with organizations such as Saracens, Wasps, and England Rugby. She has also contributed to major charitable initiatives and served on the board of the British College Trust.",
+      "image": "leigh_howes.png"
+    },
+    {
+      "name": "Kisset Chirengende",
+      "role": "Sports Marketing Executive",
+      "bio": "Kisset Chirengende specializes in Sport Marketing with a passion for sport development in Zimbabwe and beyond. Born and raised in Harare, Zimbabwe, he is the founder of Sport Sports and the Co-founder of Elevate Ltd, bringing valuable marketing expertise to the Trust's initiatives.",
+      "image": "kisset_chirengende.jpeg"
+    },
+    {
+      "name": "Edwin Edward Gumbo",
+      "role": "Business & Cricket Administrator",
+      "bio": "Edwin Edward Gumbo combines his experience as a sales and brand manager with his background in national cricket. In 1994, he became the first black player to play for the Harare Cricket Club in the Premier League. He serves as a board member of Zimbabwe Cricket Union (ZCU) and Chairman of Development. Currently, he holds a property maintenance role and is the Managing Director of a ZSE listed company.",
+      "image": "edwin_edward_gumbo.jpeg"
+    }
+  ]
+}

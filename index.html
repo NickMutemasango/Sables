@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Sables Trust - Supporting Zimbabwean Rugby</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #8b0000; /* Dark red */
+        --secondary: #ffd700; /* Gold */
+        --accent: #483d8b; /* Dark slate blue */
+        --dark: #333333;
+        --light: #f5f5f5;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        line-height: 1.6;
+        color: var(--dark);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        text-transform: uppercase;
+        /* letter-spacing: 1px; */
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .btn:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--secondary);
+        transition: all 0.4s ease-in-out;
+        z-index: -1;
+      }
+
+      .btn:hover:before {
+        left: 0;
+      }
+
+      .btn:hover {
+        color: var(--dark);
+      }
+
+      .btn-secondary {
+        background-color: var(--secondary);
+        color: var(--dark);
+      }
+
+      .btn-secondary:before {
+        background: var(--primary);
+      }
+
+      .btn-secondary:hover {
+        color: var(--white);
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 15px 0;
+        transition: all 0.3s ease;
+      }
+
+      header.scrolled {
+        padding: 10px 0;
+        background-color: rgba(0, 0, 0, 0.95);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 50px;
+        margin-right: 10px;
+
+        filter: brightness(0) invert(1);
+      }
+
+      .logo h1 {
+        color: var(--white);
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .logo span {
+        color: var(--secondary);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        color: var(--white);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--secondary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("rugby_stadium_night.webp");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s forwards 0.5s;
+      }
+
+      .hero h1 span {
+        color: var(--secondary);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s forwards 0.8s;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 15px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s forwards 1.1s;
+      }
+
+      .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--white);
+        font-size: 2rem;
+        animation: bounce 2s infinite;
+        cursor: pointer;
+      }
+
+      /* About Section */
+      .about {
+        padding: 100px 0;
+        background-color: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--dark);
+        display: inline-block;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-title h2:after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 3px;
+        background-color: var(--primary);
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .about-text h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+
+      .about-image {
+        flex: 1;
+        min-width: 300px;
+        position: relative;
+      }
+
+      .about-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-image:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 3px solid var(--secondary);
+        border-radius: 10px;
+        top: 15px;
+        left: 15px;
+        z-index: -1;
+      }
+
+      .key-aspects {
+        margin-top: 80px;
+      }
+
+      .aspects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        box-shadow: black;
+      }
+
+      .aspect-card {
+        background-color: var(--light);
+        padding: 20px;
+        border-radius: 10px;
+
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .aspect-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .aspect-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .aspect-card h4 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: var(--dark);
+      }
+
+      .aspect-card p {
+        color: #666;
+      }
+
+      /* Committee Section */
+      .committee {
+        padding: 100px 0;
+        background-color: var(--light);
+      }
+
+      .committee-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+
+        .committee-member {
+          background-color: var(--white);
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          display: flex;
+
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+
+      .committee-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .member-image {
+        height: 150px;
+        width: 150px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 100%;
+        margin-top: 30px;
+      }
+
+      .member-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .committee-member:hover .member-image img {
+        transform: scale(1.1);
+      }
+
+      .member-info {
+        padding: 25px;
+        position: relative;
+      }
+
+      .member-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+        color: var(--dark);
+      }
+
+      .member-role {
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      .member-bio {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        font-size: small;
+      }
+
+      /* Sponsorship Section */
+      .sponsorship {
+        padding: 100px 0;
+        background-color: var(--white);
+      }
+
+      .opportunity {
+        background-color: var(--primary);
+        color: var(--white);
+        padding: 40px;
+        border-radius: 10px;
+        margin-bottom: 50px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .opportunity:before {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        top: -75px;
+        right: -75px;
+      }
+
+      .opportunity h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--secondary);
+      }
+
+      .opportunity p {
+        font-size: 1.1rem;
+        max-width: 800px;
+      }
+
+      .investment {
+        margin-bottom: 50px;
+      }
+
+      .investment h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .investment-amount {
+        font-size: 2.5rem;
+        color: var(--primary);
+        text-align: center;
+        font-weight: 800;
+        margin-bottom: 30px;
+      }
+
+      .investment-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .investment-item {
+        background-color: var(--light);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .investment-item p {
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .investment-item .amount {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      .achievements {
+        margin-bottom: 50px;
+      }
+
+      .achievements h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .achievements-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .achievement-item {
+        background-color: var(--light);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .achievement-icon {
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-right: 15px;
+        margin-top: 3px;
+      }
+
+      .achievement-text {
+        flex: 1;
+      }
+
+      .goals {
+        margin-bottom: 50px;
+      }
+
+      .goals h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 90px;
+      }
+
+      .goals-list {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .goal-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+
+      .goal-icon {
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-right: 15px;
+        margin-top: 3px;
+      }
+
+      .goal-text {
+        flex: 1;
+        font-size: 1.1rem;
+      }
+
+      .packages {
+        margin-top: 50px;
+      }
+
+      .packages h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .packages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .package-card {
+        background-color: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #eee;
+      }
+
+      .package-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .package-header {
+        padding: 10px;
+        text-align: center;
+        position: relative;
+      }
+
+      .platinum .package-header {
+        background-color: var(--secondary);
+      }
+
+      .gold .package-header {
+        background-color: #d4af37;
+      }
+
+      /* .gold-lite .package-header {
+            background-color: #E6C200;
+        } */
+
+      .silver .package-header {
+        background-color: #c0c0c0;
+      }
+
+      .bronze .package-header {
+        background-color: #cd7f32;
+      }
+
+      .package-name {
+        font-size: 1.5rem;
+        /* margin-bottom: 10px; */
+        color: var(--dark);
+      }
+
+      .package-price {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--dark);
+      }
+
+      .package-body {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+
+      .benefits-list {
+        list-style: none;
+      }
+
+      .benefits-list li {
+        margin-bottom: 10px;
+        padding-left: 30px;
+        position: relative;
+        font-size: small;
+      }
+
+      .benefits-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
+      }
+
+      .package-footer {
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid #eee;
+      }
+
+      .package-note {
+        margin-top: 30px;
+        text-align: center;
+        font-style: italic;
+        color: #666;
+      }
+
+      .bonus-note {
+        margin-top: 15px;
+        text-align: center;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 100px 0;
+        background-color: var(--light);
+        position: relative;
+      }
+
+      .contact-content {
+        display: flex;
+        flex-wrap: wrap;
+        /* gap: 50px; */
+      }
+
+      .contact-info {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        color: var(--primary);
+      }
+
+      .contact-details {
+        margin-bottom: 30px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+
+      .contact-icon {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-right: 15px;
+        margin-top: 5px;
+      }
+
+      .contact-text {
+        flex: 1;
+      }
+
+      .contact-text h4 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .contact-form {
+        flex: 1;
+        min-width: 300px;
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-form h3 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        color: var(--primary);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: var(--white);
+        /* padding: 50px 0 20px; */
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        /* margin-bottom: 30px; */
+      }
+
+      .footer-logo {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .footer-logo img {
+        height: 60px;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo p {
+        color: #aaa;
+        margin-bottom: 20px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: var(--white);
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: var(--primary);
+        transform: translateY(-5px);
+      }
+      .cont{
+        width: 100%;
+      }
+
+      .footer-links {
+        flex: 1;
+        min-width: 150px;
+      }
+
+      .footer-links h4 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: var(--white);
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-links h4:after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary);
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: #aaa;
+        transition: color 0.3s ease;
+        display: inline-block;
+        position: relative;
+      }
+
+      .footer-links a:before {
+        content: "›";
+        margin-right: 8px;
+        color: var(--primary);
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+        transform: translateX(5px);
+      }
+
+      .footer-newsletter {
+        flex: 1.5;
+        min-width: 250px;
+      }
+
+      .footer-newsletter h4 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: var(--white);
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-newsletter h4:after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary);
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer-newsletter p {
+        color: #aaa;
+        margin-bottom: 20px;
+      }
+
+      .newsletter-form {
+        display: flex;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 12px 15px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+        font-size: 1rem;
+      }
+
+      .newsletter-btn {
+        background-color: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 0 20px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .newsletter-btn:hover {
+        background-color: var(--secondary);
+        color: var(--dark);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #aaa;
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0) translateX(-50%);
+        }
+        40% {
+          transform: translateY(-20px) translateX(-50%);
+        }
+        60% {
+          transform: translateY(-10px) translateX(-50%);
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .cont{
+            width: 50%;
+        }
+
+        .section-title h2 {
+          font-size: 2.2rem;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        .about-image:before {
+          display: none;
+        }
+
+        .packages-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 250px;
+          height: 100vh;
+          background-color: var(--dark);
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 80px 20px 30px;
+          transition: right 0.3s ease;
+          z-index: 999;
+        }
+
+        .cont{
+            width: 70%;
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+          width: 100%;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+          z-index: 1000;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 14px;
+        }
+
+        .hero-btns {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .hero-btns .btn {
+          width: 100%;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .aspects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .committee-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .investment-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .achievements-list {
+          grid-template-columns: 1fr;
+        }
+
+        .packages-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-content {
+          flex-direction: column;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 28px;
+        }
+
+        .section-title h2 {
+          font-size: 1.8rem;
+        }
+
+        .about-text h3 {
+          font-size: 1.5rem;
+        }
+
+        .opportunity h3 {
+          font-size: 1.5rem;
+        }
+
+        .investment-amount {
+          font-size: 2rem;
+        }
+
+        .package-name {
+          font-size: 1.3rem;
+        }
+
+        .package-price {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container header-container">
+        <div class="logo">
+          <img src="./logo2 1.svg" class="white-logo" alt="" />
+          <h1>The <span>Sables</span> Trust</h1>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#committee">Committee</a></li>
+            <li><a href="#sponsorship">Sponsorship</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <h1>Supporting Excellence in <span>Zimbabwean Rugby</span></h1>
+        <p>
+          The Sables Trust is dedicated to supporting the national men's rugby
+          team through player welfare, logistics, and comprehensive team
+          support. Join us in our journey to the Rugby World Cup.
+        </p>
+        <!-- <div class="hero-btns">
+                <a href="#sponsorship" class="btn">Sponsorship Packages</a>
+                <a href="#contact" class="btn btn-secondary">Get Involved</a>
+            </div> -->
+      </div>
+      <a href="#about" class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About The Sables Trust</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-text fade-in">
+            <h3>Our Mission</h3>
+            <p>
+              The Sables Trust is a Zimbabwean entity established in 2017 to
+              specifically support the national men's rugby team, known as the
+              Sables. We focus on ensuring the team has the necessary resources,
+              support, and infrastructure to compete at the highest levels of
+              international rugby.
+            </p>
+            <p>
+              Our efforts have contributed significantly to the team's recent
+              achievements, including their recognition at the Annual National
+              Sports Awards (ANSA), where the Sables team and coach, Piet
+              Benade, were awarded.
+            </p>
+            <p>
+              The Trust is deeply involved in the team's preparations for the
+              Rugby Africa Cup and the World Cup qualification process,
+              providing the foundation for success on the international stage.
+            </p>
+          </div>
+          <div class="about-image fade-in">
+            <img src="./mission.jpg" alt="Zimbabwe Rugby Team" />
+          </div>
+        </div>
+
+        <div class="key-aspects">
+          <div class="section-title">
+            <h2>Key Aspects</h2>
+          </div>
+          <div class="aspects-grid">
+            <div class="aspect-card fade-in">
+              <div class="aspect-icon">
+                <i class="fas fa-history"></i>
+              </div>
+              <h4>Established in 2017</h4>
+              <p>
+                The Sables Trust was founded to specifically support the
+                national men's rugby team, providing a dedicated organization
+                focused on their success.
+              </p>
+            </div>
+            <div class="aspect-card fade-in">
+              <div class="aspect-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h4>Focus on Player Welfare</h4>
+              <p>
+                The Trust addresses issues related to the well-being of the
+                players, ensuring they have the necessary resources and support
+                both on and off the field.
+              </p>
+            </div>
+            <div class="aspect-card fade-in">
+              <div class="aspect-icon">
+                <i class="fas fa-plane"></i>
+              </div>
+              <h4>Logistical Support</h4>
+              <p>
+                We assist with all logistical aspects of the team, such as
+                travel arrangements, accommodation, and equipment needs for
+                training and competitions.
+              </p>
+            </div>
+            <div class="aspect-card fade-in">
+              <div class="aspect-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <h4>Team Recognition</h4>
+              <p>
+                The Sables team and its coach, Piet Benade, received recognition
+                at the Annual National Sports Awards (ANSA), highlighting their
+                achievements.
+              </p>
+            </div>
+            <div class="aspect-card fade-in">
+              <div class="aspect-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h4>World Cup Qualification</h4>
+              <p>
+                The Trust plays a crucial role in the team's preparations for
+                the Rugby Africa Cup, which is a qualification tournament for
+                the World Cup.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section id="committee" class="committee">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Committee</h2>
+        </div>
+        <div class="committee-grid" id="committee-members">
+          <!-- Committee members will be loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsorship Section -->
+    <section id="sponsorship" class="sponsorship">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sponsorship Packages</h2>
+        </div>
+
+        <div class="opportunity fade-in">
+          <h3 id="opportunity-title"></h3>
+          <p id="opportunity-description"></p>
+        </div>
+
+        <div class="investment fade-in">
+          <h3>Investment Required</h3>
+          <div class="investment-amount" id="investment-amount"></div>
+          <div class="investment-grid" id="investment-breakdown">
+            <!-- Investment breakdown will be loaded dynamically -->
+          </div>
+        </div>
+
+        <div class="achievements fade-in">
+          <h3>2024 Achievements</h3>
+          <div class="achievements-list" id="achievements-list">
+            <!-- Achievements will be loaded dynamically -->
+          </div>
+        </div>
+
+        <div class="packages fade-in">
+          <h3>Partnership Levels</h3>
+          <div class="packages-grid" id="packages-grid">
+            <!-- Packages will be loaded dynamically -->
+          </div>
+          <p class="package-note" id="package-note"></p>
+          <p class="bonus-note" id="bonus-note"></p>
+        </div>
+
+        <div class="goals fade-in">
+          <h3>2025 Strategic Goals</h3>
+          <div class="goals-list" id="goals-list">
+            <!-- Goals will be loaded dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Get In Touch</h2>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info fade-in">
+            <h3>Contact Information</h3>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Address</h4>
+                  <p>Harare Sports Club, Harare, Zimbabwe</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Phone</h4>
+                  <p>+263 242 123 4567</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email</h4>
+                  <p>info@sablestrust.org</p>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="social-links">
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div> -->
+          </div>
+          <!-- <div class="">
+            <img src="./contact.png" class="cont" alt="">
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <!-- <div class="footer-logo">
+                    <h1>The <span>Sables</span> Trust</h1>
+                    <p>Supporting Excellence in Zimbabwean Rugby since 2017. Join us in our journey to the Rugby World Cup.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div> -->
+          <!-- <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#committee">Committee</a></li>
+                        <li><a href="#sponsorship">Sponsorship</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div> -->
+          <!-- <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">News & Updates</a></li>
+                        <li><a href="#">Match Schedule</a></li>
+                        <li><a href="#">Team Roster</a></li>
+                        <li><a href="#">Media Gallery</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div> -->
+          <!-- <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter to receive the latest updates and news about the Sables team.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your Email Address" required>
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div> -->
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 The Sables Trust. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Load committee members data
+      const committeeData = {
+        committeeMembers: [
+          {
+            name: "Lindsay Earle",
+            role: "Entrepreneur & Business Leader",
+            bio: "Lindsay Earle is a Zimbabwean entrepreneur with interests in Fuel, Mining and Commodities Trading. As a dynamic, self-motivated individual, Lindsay is involved in local boxing and is one of only two female boxing promoters in Zimbabwe. She recently began working with the Sables Rugby Trust and is passionate about projects that contribute to the development of young Zimbabweans and promote the image of the country.",
+            image: "lindsay_earle.jpeg",
+          },
+          {
+            name: "Dr. Tapfuma Parirenyatwa",
+            role: "Medical Director",
+            bio: "Dr. Tapfuma Parirenyatwa, affectionately known as Dr. Tap, is a third-generation medical practitioner with 10 years of experience. Having completed his studies in Cuba, his career brought him back to Zimbabwe where he worked at Parirenyatwa Hospital before moving to the UK. While there, he continued to serve as the Zimbabwe Sables rugby team's medical practitioner while developing an innovative healthcare business. He remains heavily involved in providing medical support to the teams and management.",
+            image: "dr_tapfuma_parirenyatwa.jpeg",
+          },
+          {
+            name: "Leigh Howes",
+            role: "Rugby Development Specialist",
+            bio: "Leigh Howes brings extensive experience as an England, Wales, and British Lions qualified player with a 20-year career in professional and international rugby. Her impressive background includes work with organizations such as Saracens, Wasps, and England Rugby. She has also contributed to major charitable initiatives and served on the board of the British College Trust.",
+            image: "leigh_howes.png",
+          },
+          {
+            name: "Kisset Chirengende",
+            role: "Sports Marketing Executive",
+            bio: "Kisset Chirengende specializes in Sport Marketing with a passion for sport development in Zimbabwe and beyond. Born and raised in Harare, Zimbabwe, he is the founder of Sport Sports and the Co-founder of Elevate Ltd, bringing valuable marketing expertise to the Trust's initiatives.",
+            image: "kisset_chirengende.jpeg",
+          },
+          // {
+          //     "name": "Edwin Edward Gumbo",
+          //     "role": "Business & Cricket Administrator",
+          //     "bio": "Edwin Edward Gumbo combines his experience as a sales and brand manager with his background in national cricket. In 1994, he became the first black player to play for the Harare Cricket Club in the Premier League. He serves as a board member of Zimbabwe Cricket Union (ZCU) and Chairman of Development. Currently, he holds a property maintenance role and is the Managing Director of a ZSE listed company.",
+          //     "image": "edwin_edward_gumbo.jpeg"
+          // }
+        ],
+      };
+
+      // Load sponsorship data
+      const sponsorshipData = {
+        title: "ZIMBABWE SABLES RUGBY SPONSORSHIP PACKAGES 2025",
+        opportunity: {
+          title: "THE OPPORTUNITY: 2025 RUGBY AFRICA CUP",
+          description:
+            "This July in Kampala, Uganda, the Sables have a direct route to the 2027 Rugby World Cup in Australia. Victory in the Rugby Africa Cup secures automatic qualification, marking Zimbabwe's return to rugby's grandest stage.",
+        },
+        investment: {
+          total: "$640,000",
+          breakdown: [
+            {
+              item: "Professional training camp facilities and equipment",
+              amount: "$180,000",
+            },
+            {
+              item: "High-performance coaching and technical staff",
+              amount: "$150,000",
+            },
+            {
+              item: "Player welfare and medical support",
+              amount: "$120,000",
+            },
+            {
+              item: "Travel and accommodation for international competitions",
+              amount: "$140,000",
+            },
+            {
+              item: "Team logistics and operational costs",
+              amount: "$50,000",
+            },
+          ],
+        },
+        achievements2024: [
+          "Champions of the 2024 Rugby Africa Cup, demonstrating dominance in regional competition",
+          "Perfect record in 2024 with 7 wins from 7 test matches",
+          "Head Coach Pieter Benade named Coach of the Tournament at Rugby Africa Cup",
+          "Star player Tapiwa Mafura (Emirates Lions) recognized as Player of the Tournament",
+          "Developed emerging talent through the High-Performance Program, with multiple players securing international contracts",
+          "Enhanced training facilities and medical support infrastructure",
+          "Strengthened grassroots development through nationwide rugby initiatives",
+        ],
+        strategicGoals: [
+          "Qualify for the 2027 Rugby World Cup through victory at the Rugby Africa Cup",
+          "Expand high-performance program to include 30 contracted players",
+          "Establish dedicated training center for national team",
+          "Strengthen partnerships with international rugby unions",
+          "Develop next generation of players through enhanced academy system",
+        ],
+        packages: [
+          {
+            name: "Platinum Partner",
+            price: "$300,000",
+            benefits: [
+              "Primary jersey sponsor position for all 2025 matches including Rugby Africa Cup",
+              "Exclusive branding rights at all home games (stadium perimeter, player tunnel, team bench)",
+              "VIP hospitality suite for 20 guests at each home game",
+              "Exclusive branding on all training kit, equipment and travel gear",
+              "Official team transport branding",
+              "Player appearances at 6 corporate events",
+              "Team merchandise package (40 authentic jerseys)",
+              "First right of refusal for 2026 sponsorship",
+              "Full access to team camp and Rugby Africa Cup journey content",
+              "Dedicated social media series featuring sponsored team content",
+              "Preferred Rugby World Cup 2027 qualification activation rights",
+            ],
+          },
+          {
+            name: "Gold Partner",
+            price: "$150,000",
+            benefits: [
+              "Secondary jersey position (front/top back)",
+              "Branding on training kit",
+              "VIP hospitality for 15 guests at home games",
+              "Player appearances at 4 corporate events",
+              "Branded content from Rugby Africa Cup campaign",
+              "Match day activation rights at home games",
+              "Social media integration during home series",
+              "Team merchandise package (35 authentic jerseys)",
+              "Dedicated sponsor recognition at all press conferences",
+              "First right of refusal for 2026-27 Gold partnership (60-day exclusive negotiation window)",
+            ],
+          },
+          {
+            name: "Gold Lite Partner",
+            price: "$100,000",
+            benefits: [
+              "Secondary jersey position (back/bottom back)",
+              "Training kit branding (premium position)",
+              "VIP hospitality for 12 guests at home games",
+              "Player appearances at 3 corporate events",
+              "Match day activation rights at 2 home games",
+              "Digital content package focusing on home series",
+              "Team merchandise package (30 authentic jerseys)",
+              "Sponsor recognition at home games and conferences",
+              "Social media integration during home series",
+              "First right of refusal for 2026-27 Gold Lite partnership (45-day exclusive negotiation window)",
+            ],
+          },
+          {
+            name: "Silver Partner",
+            price: "$75,000",
+            benefits: [
+              "Shorts or sleeve branding position",
+              "Match day perimeter advertising at home games",
+              "VIP hospitality for 10 guests at home games",
+              "Player appearances at 2 corporate events",
+              "Social media integration during home series",
+              "Team merchandise package (25 authentic jerseys)",
+              "Branding on team press conference backdrop",
+              "Monthly team update content for sponsor use",
+            ],
+          },
+          {
+            name: "Bronze Partner",
+            price: "$35,000",
+            benefits: [
+              "Training kit branding (select positions)",
+              "Match day advertising panel at home games",
+              "VIP hospitality for 5 guests at home games",
+              "Player appearance at 1 corporate event",
+              "Team merchandise package (15 authentic jerseys)",
+              "Social media acknowledgement during home series",
+              "Access to team photo and content library",
+            ],
+          },
+        ],
+        // "note": "All packages include dedicated briefing, invitation to team send-off before Rugby Africa Cup, sponsor recognition on Zimbabwe Rugby Union website, and priority ticket access to all home games.",
+        // "bonusNote": "Note: Bespoke 2025 performance bonus structures available for Platinum and Gold partners in event of 2027 Rugby World Cup qualification."
+      };
+
+      // Populate committee members
+      const committeeGrid = document.getElementById("committee-members");
+      committeeData.committeeMembers.forEach((member) => {
+        const memberHTML = `
+                <div class="committee-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="${member.name}">
+                    </div>
+                    <div class="member-info">
+                        <h3>${member.name}</h3>
+                        <span class="member-role">${member.role}</span>
+                        <p class="member-bio">${member.bio}</p>
+                    </div>
+                </div>
+            `;
+        committeeGrid.innerHTML += memberHTML;
+      });
+
+      // Populate sponsorship section
+      document.getElementById("opportunity-title").textContent =
+        sponsorshipData.opportunity.title;
+      document.getElementById("opportunity-description").textContent =
+        sponsorshipData.opportunity.description;
+      document.getElementById("investment-amount").textContent =
+        sponsorshipData.investment.total;
+
+      const investmentBreakdown = document.getElementById(
+        "investment-breakdown"
+      );
+      sponsorshipData.investment.breakdown.forEach((item) => {
+        const itemHTML = `
+                <div class="investment-item">
+                    <p>${item.item}</p>
+                    <div class="amount">${item.amount}</div>
+                </div>
+            `;
+        investmentBreakdown.innerHTML += itemHTML;
+      });
+
+      const achievementsList = document.getElementById("achievements-list");
+      sponsorshipData.achievements2024.forEach((achievement) => {
+        const achievementHTML = `
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="achievement-text">
+                        <p>${achievement}</p>
+                    </div>
+                </div>
+            `;
+        achievementsList.innerHTML += achievementHTML;
+      });
+
+      const goalsList = document.getElementById("goals-list");
+      sponsorshipData.strategicGoals.forEach((goal) => {
+        const goalHTML = `
+                <div class="goal-item">
+                    <div class="goal-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="goal-text">
+                        <p>${goal}</p>
+                    </div>
+                </div>
+            `;
+        goalsList.innerHTML += goalHTML;
+      });
+
+      const packagesGrid = document.getElementById("packages-grid");
+      sponsorshipData.packages.forEach((pkg) => {
+        const packageClass = pkg.name.toLowerCase().replace(" ", "-");
+        const benefitsHTML = pkg.benefits
+          .map((benefit) => `<li>${benefit}</li>`)
+          .join("");
+
+        const packageHTML = `
+                <div class="package-card ${packageClass} fade-in">
+                    <div class="package-header">
+                        <div class="package-name">${pkg.name}</div>
+                        <div class="package-price">${pkg.price}</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="benefits-list">
+                            ${benefitsHTML}
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <a href="#contact" class="btn">Get In Touch</a>
+                    </div>
+                </div>
+            `;
+        packagesGrid.innerHTML += packageHTML;
+      });
+
+      document.getElementById("package-note").textContent =
+        sponsorshipData.note;
+      document.getElementById("bonus-note").textContent =
+        sponsorshipData.bonusNote;
+
+      // Scroll animations
+      const fadeElements = document.querySelectorAll(".fade-in");
+      const header = document.getElementById("header");
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      // Check if element is in viewport
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top <=
+            (window.innerHeight || document.documentElement.clientHeight) *
+              0.8 && rect.bottom >= 0
+        );
+      }
+
+      // Animate elements when scrolled into view
+      function checkScroll() {
+        fadeElements.forEach((element) => {
+          if (isInViewport(element)) {
+            element.classList.add("active");
+          }
+        });
+
+        // Header scroll effect
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      }
+
+      // Mobile menu toggle
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        const icon = mobileMenuBtn.querySelector("i");
+        if (navLinks.classList.contains("active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
+      });
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Close mobile menu if open
+          if (navLinks.classList.contains("active")) {
+            navLinks.classList.remove("active");
+            const icon = mobileMenuBtn.querySelector("i");
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          }
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Form submission
+      // const contactForm = document.getElementById('contact-form');
+      // contactForm.addEventListener('submit', function(e) {
+      //     e.preventDefault();
+      //     alert('Thank you for your message! We will get back to you soon.');
+      //     contactForm.reset();
+      // });
+
+      // Newsletter form submission
+      // const newsletterForm = document.querySelector('.newsletter-form');
+      // newsletterForm.addEventListener('submit', function(e) {
+      //     e.preventDefault();
+      //     alert('Thank you for subscribing to our newsletter!');
+      //     newsletterForm.reset();
+      // });
+
+      // Initialize animations
+      window.addEventListener("load", checkScroll);
+      window.addEventListener("scroll", checkScroll);
+      window.addEventListener("resize", checkScroll);
+    </script>
+  </body>
+</html>
