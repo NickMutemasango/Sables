@@ -358,7 +358,6 @@
         background-color: var(--light);
         padding: 20px;
         border-radius: 10px;
-
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
@@ -607,7 +606,7 @@
 
       .goal-text {
         flex: 1;
-        font-size: 1.1rem;
+        font-size: small;
       }
 
       .packages {
@@ -1116,25 +1115,33 @@
           font-size: 2rem;
         }
 
-        .aspects-grid {
-          grid-template-columns: 1fr;
-        }
+        .aspect-card {
+        background-color: var(--light);
+        padding: 20px;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+      }
 
-        .committee-grid {
+        /* .aspects-grid {
           grid-template-columns: 1fr;
-        }
+        } */
 
-        .investment-grid {
+        /* .committee-grid {
           grid-template-columns: 1fr;
-        }
+        } */
 
-        .achievements-list {
+        /* .investment-grid {
           grid-template-columns: 1fr;
-        }
+        } */
 
-        .packages-grid {
+        /* .achievements-list {
           grid-template-columns: 1fr;
-        }
+        } */
+
+        /* .packages-grid {
+          grid-template-columns: 1fr;
+        } */
 
         .contact-content {
           flex-direction: column;
@@ -1147,6 +1154,21 @@
       }
 
       @media (max-width: 480px) {
+
+        .hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("./Small1.jpeg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+
+
         .hero h1 {
           font-size: 28px;
         }
