@@ -208,7 +208,7 @@
       .hero {
         height: 100vh;
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-          url("rugby_stadium_night.webp");
+          url("./Images/HOME.jpg");
         background-size: cover;
         background-position: center;
         display: flex;
@@ -1158,7 +1158,7 @@
         .hero {
         height: 100vh;
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-          url("./Small1.jpeg");
+          url("./Images/Small.jpg");
         background-size: cover;
         background-position: center;
         display: flex;
@@ -1180,6 +1180,10 @@
         .about-text h3 {
           font-size: 1.5rem;
         }
+        .about-text p {
+        margin-bottom: 20px;
+        font-size: small;
+      }
 
         .opportunity h3 {
           font-size: 1.5rem;
@@ -1204,7 +1208,7 @@
     <header id="header">
       <div class="container header-container">
         <div class="logo">
-          <img src="./logo2 1.svg" class="white-logo" alt="" />
+          <img src="./Images/logo2 1.svg" class="white-logo" alt="" />
           <h1>The <span>Sables</span> Trust</h1>
         </div>
         <nav>
@@ -1270,7 +1274,7 @@
             </p>
           </div>
           <div class="about-image fade-in">
-            <img src="./mission.jpg" alt="Zimbabwe Rugby Team" />
+            <img src="./Images/About1.jpg" alt="Zimbabwe Rugby Team" />
           </div>
         </div>
 
@@ -1510,26 +1514,26 @@
           {
             name: "Lindsay Earle",
             role: "Entrepreneur & Business Leader",
-            bio: "Lindsay Earle is a Zimbabwean entrepreneur with interests in Fuel, Mining and Commodities Trading. As a dynamic, self-motivated individual, Lindsay is involved in local boxing and is one of only two female boxing promoters in Zimbabwe. She recently began working with the Sables Rugby Trust and is passionate about projects that contribute to the development of young Zimbabweans and promote the image of the country.",
-            image: "lindsay_earle.jpeg",
+            bio: "Lindsay Earle is a Zimbabwean entrepreneur with interests in Fuel, Mining and Commodities Trading. As a dynamic, self-motivated individual, Lindsay is involved in local boxing and is one of only two female boxing promoters in Zimbabwe and she recently began working with the Sables Rugby Trust. She is passionate about any project that lends itself to the development of young Zimbabweans and promotes the image of the country.",
+            image: "./Images/Lindsay.jpg",
           },
           {
             name: "Dr. Tapfuma Parirenyatwa",
             role: "Medical Director",
-            bio: "Dr. Tapfuma Parirenyatwa, affectionately known as Dr. Tap, is a third-generation medical practitioner with 10 years of experience. Having completed his studies in Cuba, his career brought him back to Zimbabwe where he worked at Parirenyatwa Hospital before moving to the UK. While there, he continued to serve as the Zimbabwe Sables rugby team's medical practitioner while developing an innovative healthcare business. He remains heavily involved in providing medical support to the teams and management.",
-            image: "dr_tapfuma_parirenyatwa.jpeg",
+            bio: "Dr. Tapfuma Parirenyatwa, affectionately known as Dr. Pari, is a third-generation medical practitioner with 10 years of experience. Having completed his studies in Cuba, his career brought him back home where he worked at Parirenyatwa Hospital for a few years, specialising in casualty and emergency care. When he was not practising medicine, he was working hard on the rugby field as the Zimbabwe Sables eighth man. He runs two successfull medical practices and an innovative business called  Health At Home that facilitates home visitors from a variety of medical practitioners. Whilst he has retired from the rugby field and hung up his boots, he remains heavily involved in the sport that he loves by providing medical support to the teams and management.  ",
+            image: "./Images/DR.jpg",
           },
           {
             name: "Leigh Howes",
             role: "Rugby Development Specialist",
-            bio: "Leigh Howes brings extensive experience as an England, Wales, and British Lions qualified player with a 20-year career in professional and international rugby. Her impressive background includes work with organizations such as Saracens, Wasps, and England Rugby. She has also contributed to major charitable initiatives and served on the board of the British College Trust.",
-            image: "leigh_howes.png",
+            bio: "Leigh Howes is an England, Wales and Zimbabwe qualified lawyer with experience spanning 22 years. Leigh is highly personable and motivated and she specializes in corporate commercial law. She advises top organizations such as National Foods Holdings Limited, who she has worked with as legal counsel for ten years. Leigh also sits on the board of the Silver Linings Trust.",
+            image: "./Images/Leigh.jpg",
           },
           {
             name: "Kisset Chirengende",
             role: "Sports Marketing Executive",
-            bio: "Kisset Chirengende specializes in Sport Marketing with a passion for sport development in Zimbabwe and beyond. Born and raised in Harare, Zimbabwe, he is the founder of Sport Sports and the Co-founder of Elevate Ltd, bringing valuable marketing expertise to the Trust's initiatives.",
-            image: "kisset_chirengende.jpeg",
+            bio: "Kisset Chirengende is a Sport Marketing Consultant who is passionate about sport development in Zimbabwe and beyond. Kisset has used sport as a tool to fight social exclusion in communities. He is the founder of Kyros Sports and the Co-founder of Athstat LLC.",
+            image: "./Images/Kisset.jpg",
           },
           // {
           //     "name": "Edwin Edward Gumbo",
@@ -1672,22 +1676,23 @@
       };
 
       // Populate committee members
-      const committeeGrid = document.getElementById("committee-members");
-      committeeData.committeeMembers.forEach((member) => {
-        const memberHTML = `
-                <div class="committee-member fade-in">
-                    <div class="member-image">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="${member.name}">
-                    </div>
-                    <div class="member-info">
-                        <h3>${member.name}</h3>
-                        <span class="member-role">${member.role}</span>
-                        <p class="member-bio">${member.bio}</p>
-                    </div>
-                </div>
-            `;
-        committeeGrid.innerHTML += memberHTML;
-      });
+    // Populate committee members
+const committeeGrid = document.getElementById("committee-members");
+committeeData.committeeMembers.forEach((member) => {
+  const memberHTML = `
+    <div class="committee-member fade-in">
+      <div class="member-image">
+        <img src="${member.image}" alt="${member.name}" onerror="this.src='./Images/committee/fallback.jpg'">
+      </div>
+      <div class="member-info">
+        <h3>${member.name}</h3>
+        <span class="member-role">${member.role}</span>
+        <p class="member-bio">${member.bio}</p>
+      </div>
+    </div>
+  `;
+  committeeGrid.innerHTML += memberHTML;
+});
 
       // Populate sponsorship section
       document.getElementById("opportunity-title").textContent =
