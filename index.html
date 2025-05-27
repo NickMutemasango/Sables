@@ -868,7 +868,7 @@
         background-color: var(--primary);
         transform: translateY(-5px);
       }
-      .cont{
+      .cont {
         width: 100%;
       }
 
@@ -1039,8 +1039,8 @@
           font-size: 2.8rem;
         }
 
-        .cont{
-            width: 50%;
+        .cont {
+          width: 50%;
         }
 
         .section-title h2 {
@@ -1075,8 +1075,8 @@
           z-index: 999;
         }
 
-        .cont{
-            width: 70%;
+        .cont {
+          width: 70%;
         }
 
         .nav-links.active {
@@ -1117,12 +1117,11 @@
         }
 
         .aspect-card {
-        background-color: var(--light);
-        padding: 20px;
-        border-radius: 10px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        
-      }
+          background-color: var(--light);
+          padding: 20px;
+          border-radius: 10px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
         /* .aspects-grid {
           grid-template-columns: 1fr;
@@ -1155,20 +1154,18 @@
       }
 
       @media (max-width: 480px) {
-
         .hero {
-        height: 100vh;
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-          url("./Images/Small.jpg");
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        color: var(--white);
-        position: relative;
-        overflow: hidden;
-      }
-
+          height: 100vh;
+          background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+            url("./Images/Small.jpg");
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          align-items: center;
+          color: var(--white);
+          position: relative;
+          overflow: hidden;
+        }
 
         .hero h1 {
           font-size: 28px;
@@ -1182,18 +1179,18 @@
           font-size: 1.5rem;
         }
         .about-text p {
-        margin-bottom: 20px;
-        font-size: small;
-      }
+          margin-bottom: 20px;
+          font-size: small;
+        }
 
         .opportunity h3 {
           font-size: 1.5rem;
         }
 
         .goal-text {
-        flex: 1;
-        font-size: small;
-      }
+          flex: 1;
+          font-size: small;
+        }
 
         .investment-amount {
           font-size: 2rem;
@@ -1422,9 +1419,14 @@
                 </div>
                 <div class="contact-text">
                   <h4>Address</h4>
-                  <p><a href="https://www.google.com/maps/place/2+Ridgeway+South,+Highlands,+Harare" target="_blank">
-  2 Ridgeway South, Highlands Harare
-</a></p>
+                  <p>
+                    <a
+                      href="https://www.google.com/maps/place/2+Ridgeway+South,+Highlands,+Harare"
+                      target="_blank"
+                    >
+                      2 Ridgeway South, Highlands Harare
+                    </a>
+                  </p>
                 </div>
               </div>
               <div class="contact-item">
@@ -1684,10 +1686,10 @@
       };
 
       // Populate committee members
-    // Populate committee members
-const committeeGrid = document.getElementById("committee-members");
-committeeData.committeeMembers.forEach((member) => {
-  const memberHTML = `
+      // Populate committee members
+      const committeeGrid = document.getElementById("committee-members");
+      committeeData.committeeMembers.forEach((member) => {
+        const memberHTML = `
     <div class="committee-member fade-in">
       <div class="member-image">
         <img src="${member.image}" alt="${member.name}" onerror="this.src='./Images/committee/fallback.jpg'">
@@ -1699,8 +1701,8 @@ committeeData.committeeMembers.forEach((member) => {
       </div>
     </div>
   `;
-  committeeGrid.innerHTML += memberHTML;
-});
+        committeeGrid.innerHTML += memberHTML;
+      });
 
       // Populate sponsorship section
       document.getElementById("opportunity-title").textContent =
