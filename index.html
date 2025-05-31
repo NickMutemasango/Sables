@@ -489,7 +489,7 @@
       }
 
       .opportunity p {
-        font-size: 1.1rem;
+        font-size: 15px;
         max-width: 800px;
       }
 
@@ -523,7 +523,6 @@
         padding: 20px;
         border-radius: 10px;
         text-align: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       }
 
       .investment-item p {
@@ -558,7 +557,7 @@
         background-color: var(--light);
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
         display: flex;
         align-items: flex-start;
       }
@@ -862,6 +861,86 @@
         color: var(--white);
         font-size: 1.2rem;
         transition: all 0.3s ease;
+      }
+
+      .player-sponsorships {
+        margin-top: 80px;
+        padding: 40px;
+        background-color: var(--light);
+        border-radius: 10px;
+      }
+
+      .player-sponsorships h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .player-sponsorship-description {
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      .player-sponsorship-levels {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .player-sponsorship-card {
+        background-color: var(--white);
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .player-sponsorship-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .player-sponsorship-name {
+        font-size: 1.3rem;
+        color: var(--primary);
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .player-sponsorship-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--dark);
+      }
+
+      .player-sponsorship-benefits {
+        list-style: none;
+        margin-bottom: 20px;
+      }
+
+      .player-sponsorship-benefits li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .player-sponsorship-benefits li:before {
+        content: "•";
+        position: absolute;
+        left: 10px;
+        color: var(--primary);
+        font-weight: bold;
+      }
+
+      .player-sponsorship-note {
+        margin-top: 30px;
+        text-align: center;
+        font-style: italic;
+        color: #666;
       }
 
       .social-link:hover {
@@ -1183,8 +1262,16 @@
           font-size: small;
         }
 
+        .achievement-text {
+          font-size: 15px;
+        }
+
         .opportunity h3 {
           font-size: 1.5rem;
+        }
+
+        .opportunity p {
+          font-size: 15px;
         }
 
         .goal-text {
@@ -1196,8 +1283,40 @@
           font-size: 2rem;
         }
 
+        .aspect-card p {
+          font-size: 15px;
+        }
+
+        .investment-item p {
+          font-size: 15px;
+        }
+
         .package-name {
           font-size: 1.3rem;
+        }
+
+        .player-sponsorships {
+          margin-top: 80px;
+          padding: 20px;
+          background-color: var(--light);
+          border-radius: 10px;
+        }
+
+        .player-sponsorships h3 {
+          font-size: 30px;
+          color: var(--primary);
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .player-sponsorships .benefits li {
+          font-size: small;
+        }
+
+        .player-sponsorship-benefits {
+          font-size: small;
+        }
+        .player-sponsorship-description {
+          font-size: 15px;
         }
 
         .package-price {
@@ -1392,6 +1511,20 @@
           </div>
           <p class="package-note" id="package-note"></p>
           <p class="bonus-note" id="bonus-note"></p>
+        </div>
+
+        <div class="player-sponsorships fade-in">
+          <h3>Player Sponsorship Program</h3>
+          <p
+            class="player-sponsorship-description"
+            id="player-sponsorship-description"
+          ></p>
+
+          <div class="player-sponsorship-levels" id="player-sponsorship-levels">
+            <!-- Player sponsorship levels will be loaded dynamically -->
+          </div>
+
+          <p class="player-sponsorship-note" id="player-sponsorship-note"></p>
         </div>
 
         <div class="goals fade-in">
@@ -1681,6 +1814,52 @@
             ],
           },
         ],
+
+        // Add this to the sponsorshipData object
+        playerSponsorships: {
+          title: "INDIVIDUAL PLAYER SPONSORSHIP PROGRAM",
+          description:
+            "Sponsor an individual player to support their development and contribute directly to the team's success. Your sponsorship helps cover training, equipment, and living expenses for our athletes.",
+          levels: [
+            {
+              name: "Elite Player Sponsorship",
+              price: "$15,000",
+              benefits: [
+                "Sponsor one of our starting XV players",
+                "Exclusive meet-and-greet with your sponsored player",
+                "Player jersey with your company logo/name",
+                "Signed match ball from your player",
+                "Monthly performance updates",
+                "Social media recognition",
+                "Invitation to team events",
+              ],
+            },
+            {
+              name: "Development Player Sponsorship",
+              price: "$7,500",
+              benefits: [
+                "Sponsor an emerging talent player",
+                "Meet-and-greet with your sponsored player",
+                "Player jersey with your company logo/name",
+                "Signed team photo",
+                "Quarterly performance updates",
+                "Social media recognition",
+              ],
+            },
+            {
+              name: "Academy Player Sponsorship",
+              price: "$3,000",
+              benefits: [
+                "Sponsor a youth academy player",
+                "Player jersey with your company logo/name",
+                "Bi-annual performance updates",
+                "Social media recognition",
+              ],
+            },
+          ],
+          note: "Player sponsorships can be customized to include specific performance bonuses or additional benefits. Contact us to discuss tailored packages.",
+        },
+
         // "note": "All packages include dedicated briefing, invitation to team send-off before Rugby Africa Cup, sponsor recognition on Zimbabwe Rugby Union website, and priority ticket access to all home games.",
         // "bonusNote": "Note: Bespoke 2025 performance bonus structures available for Platinum and Gold partners in event of 2027 Rugby World Cup qualification."
       };
@@ -1690,17 +1869,17 @@
       const committeeGrid = document.getElementById("committee-members");
       committeeData.committeeMembers.forEach((member) => {
         const memberHTML = `
-    <div class="committee-member fade-in">
-      <div class="member-image">
-        <img src="${member.image}" alt="${member.name}" onerror="this.src='./Images/committee/fallback.jpg'">
-      </div>
-      <div class="member-info">
-        <h3>${member.name}</h3>
-        <span class="member-role">${member.role}</span>
-        <p class="member-bio">${member.bio}</p>
-      </div>
-    </div>
-  `;
+                <div class="committee-member fade-in">
+                  <div class="member-image">
+                    <img src="${member.image}" alt="${member.name}" onerror="this.src='./Images/committee/fallback.jpg'">
+                  </div>
+                  <div class="member-info">
+                    <h3>${member.name}</h3>
+                    <span class="member-role">${member.role}</span>
+                    <p class="member-bio">${member.bio}</p>
+                  </div>
+                </div>
+              `;
         committeeGrid.innerHTML += memberHTML;
       });
 
@@ -1717,41 +1896,70 @@
       );
       sponsorshipData.investment.breakdown.forEach((item) => {
         const itemHTML = `
-                <div class="investment-item">
-                    <p>${item.item}</p>
-                    <div class="amount">${item.amount}</div>
-                </div>
-            `;
+                            <div class="investment-item">
+                                <p>${item.item}</p>
+                                <div class="amount">${item.amount}</div>
+                            </div>
+                        `;
         investmentBreakdown.innerHTML += itemHTML;
+      });
+
+      // Populate player sponsorships
+      document.getElementById("player-sponsorship-description").textContent =
+        sponsorshipData.playerSponsorships.description;
+      document.getElementById("player-sponsorship-note").textContent =
+        sponsorshipData.playerSponsorships.note;
+
+      const playerSponsorshipLevels = document.getElementById(
+        "player-sponsorship-levels"
+      );
+      sponsorshipData.playerSponsorships.levels.forEach((level) => {
+        const benefitsHTML = level.benefits
+          .map((benefit) => `<li>${benefit}</li>`)
+          .join("");
+
+        const levelHTML = `
+    <div class="player-sponsorship-card fade-in">
+      <div class="player-sponsorship-name">${level.name}</div>
+      <div class="player-sponsorship-price">${level.price}</div>
+      <ul class="player-sponsorship-benefits">
+        ${benefitsHTML}
+      </ul>
+      <div style="text-align: center;">
+        <a href="#contact" class="btn">Sponsor Now</a>
+      </div>
+    </div>
+  `;
+        playerSponsorshipLevels.innerHTML += levelHTML;
       });
 
       const achievementsList = document.getElementById("achievements-list");
       sponsorshipData.achievements2024.forEach((achievement) => {
         const achievementHTML = `
-                <div class="achievement-item">
-                    <div class="achievement-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="achievement-text">
-                        <p>${achievement}</p>
-                    </div>
-                </div>
-            `;
+                            <div class="achievement-item">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="achievement-text">
+                                    <p>${achievement}</p>
+                                </div>
+                            </div>
+                        `;
         achievementsList.innerHTML += achievementHTML;
       });
 
       const goalsList = document.getElementById("goals-list");
       sponsorshipData.strategicGoals.forEach((goal) => {
         const goalHTML = `
-                <div class="goal-item">
-                    <div class="goal-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <div class="goal-text">
-                        <p>${goal}</p>
-                    </div>
-                </div>
-            `;
+                            <div class="goal-item">
+                                <div class="goal-icon">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <div class="goal-text">
+                                    <p>${goal}</p>
+                                </div>
+                            </div>
+                        `;
         goalsList.innerHTML += goalHTML;
       });
 
@@ -1763,21 +1971,21 @@
           .join("");
 
         const packageHTML = `
-                <div class="package-card ${packageClass} fade-in">
-                    <div class="package-header">
-                        <div class="package-name">${pkg.name}</div>
-                        <div class="package-price">${pkg.price}</div>
-                    </div>
-                    <div class="package-body">
-                        <ul class="benefits-list">
-                            ${benefitsHTML}
-                        </ul>
-                    </div>
-                    <div class="package-footer">
-                        <a href="#contact" class="btn">Get In Touch</a>
-                    </div>
-                </div>
-            `;
+                            <div class="package-card ${packageClass} fade-in">
+                                <div class="package-header">
+                                    <div class="package-name">${pkg.name}</div>
+                                    <div class="package-price">${pkg.price}</div>
+                                </div>
+                                <div class="package-body">
+                                    <ul class="benefits-list">
+                                        ${benefitsHTML}
+                                    </ul>
+                                </div>
+                                <div class="package-footer">
+                                    <a href="#contact" class="btn">Get In Touch</a>
+                                </div>
+                            </div>
+                        `;
         packagesGrid.innerHTML += packageHTML;
       });
 
